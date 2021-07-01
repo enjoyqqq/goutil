@@ -28,7 +28,7 @@ func GetRandomWelcome() {
 	dateFmt := t.Format("2006-01-02 15:04:05") //go诞生的时间
 	logStr := "[当前的时间是:" + dateFmt + "]"
 
-	sWelcomeList := []string{"come on qzp", "happy everyday qzp", "take easy qzp", "you are best qzp", "relax yourself qzp"}
+	sWelcomeList := []string{"come on qzp", "happy everyday qzp", "take easy qzp", "you are best qzp", "relax yourself qzp", "please laugh haha qzp"}
 	iWelcomeListLen := len(sWelcomeList)
 	// for idx := 0; idx < sWelcomeLen; idx++ {
 	// 	fmt.Println(sWelcomeList[idx])
