@@ -37,5 +37,5 @@ func GetRandomWelcome() {
 	rand.Seed(time.Now().UnixNano())
 	iRandNum := rand.Intn(iWelcomeListLen)
 	logStr += sWelcomeList[iRandNum]
-	fmt.Println(logStr)
+	fmt.Printf("%s 欢迎语长度为%d", logStr, iWelcomeListLen)
 }
