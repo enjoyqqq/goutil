@@ -3,6 +3,7 @@ package goutil
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -23,19 +24,34 @@ func FindType(i interface{}) {
 	}
 }
 
-func GetRandomWelcome() {
-	t := time.Now()
-	dateFmt := t.Format("2006-01-02 15:04:05") //go诞生的时间
-	logStr := "[当前的时间是:" + dateFmt + "]"
+func MyPrintf(args ...interface{}) {
+	for _, arg := range args {
+		switch arg.(type) {
+		case int:
+			fmt.Println(arg, "is an int value.")
+		case string:
+			fmt.Println(arg, "is a string value.")
+		case int64:
+			fmt.Println(arg, "is an int64 value.")
+		default:
+			fmt.Println(arg, "is an unknown type.")
+		}
+	}
+}
 
+func GetRandomWelcome() {
 	sWelcomeList := []string{"come on qzp", "happy everyday qzp", "take easy qzp", "you are best qzp", "relax yourself qzp", "please laugh haha qzp"}
 	iWelcomeListLen := len(sWelcomeList)
 	// for idx := 0; idx < sWelcomeLen; idx++ {
 	// 	fmt.Println(sWelcomeList[idx])
 	// }
 
+	t := time.Now()
+	dateFmt := t.Format("2006-01-02 15:04:05") //go诞生的时间
+	logStr := "[当前的时间是:" + dateFmt + "]" + "欢迎语长度为" + strconv.Itoa(iWelcomeListLen) + "，欢迎语为"
+
 	rand.Seed(time.Now().UnixNano())
 	iRandNum := rand.Intn(iWelcomeListLen)
 	logStr += sWelcomeList[iRandNum]
-	fmt.Printf("%s 欢迎语长度为%d", logStr, iWelcomeListLen)
+	fmt.Println(logStr)
 }
